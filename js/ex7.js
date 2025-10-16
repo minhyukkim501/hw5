@@ -14,8 +14,12 @@ function getSum() {
     
     const sum = Number(num1) + Number(num2);
     const result = document.createElement('div');
-    result.id = 'result';
-    result.textContent = `${num1} + ${num2} = ${sum}`;
+    const span = document.createElement('span');
+    span.style.color = 'red';
+    span.style.fontWeight = 'bold';
+    span.textContent = `${num1} + ${num2} = ${sum}`;
+    
+    result.appendChild(span);
     content.appendChild(result);
 }
 
