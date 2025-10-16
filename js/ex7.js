@@ -6,17 +6,16 @@ function getSum() {
     
     if (isNaN(num1) || isNaN(num2) || !Number.isInteger(Number(num1)) || !Number.isInteger(Number(num2))) {
         const error = document.createElement('div');
-        error.className = 'error';
         
         const errorSpan = document.createElement('span');
         errorSpan.style.color = 'red';
         errorSpan.style.fontWeight = 'bold';
         errorSpan.textContent = 'Error!';
+        error.appendChild(errorSpan);
         
         const restText = document.createTextNode(` You must enter integers. You entered "${num1}" and "${num2}". Try again.`);
-        
-        error.appendChild(errorSpan);
         error.appendChild(restText);
+        
         content.appendChild(error);
         return;
     }
