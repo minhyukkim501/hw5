@@ -17,7 +17,9 @@ const dl = document.createElement('dl');
 
 words.forEach(word => {
     const dt = document.createElement('dt');
-    dt.textContent = word.term;
+    const strong = document.createElement('Strong');
+    strong.textContent = word.term;
+    dt.appendChild(strong);
     
     const dd = document.createElement('dd');
     dd.textContent = word.definition;
