@@ -7,17 +7,29 @@ function getSum() {
     if (isNaN(num1) || isNaN(num2) || !Number.isInteger(Number(num1)) || !Number.isInteger(Number(num2))) {
         const error = document.createElement('div');
         error.className = 'error';
-        error.textContent = `Error! You must enter integers. You entered "${num1}" and "${num2}". Try again.`;
+        
+        const errorSpan = document.createElement('span');
+        errorSpan.style.color = 'red';
+        errorSpan.style.fontWeight = 'bold';
+        errorSpan.textContent = 'Error!';
+        
+        const restText = document.createTextNode(` You must enter integers. You entered "${num1}" and "${num2}". Try again.`);
+        
+        error.appendChild(errorSpan);
+        error.appendChild(restText);
         content.appendChild(error);
         return;
     }
     
     const sum = Number(num1) + Number(num2);
     const result = document.createElement('div');
+    const text = document.createTextNode(`${num1} + ${num2} = `);
+    result.appendChild(text);
+    
     const span = document.createElement('span');
     span.style.color = 'red';
     span.style.fontWeight = 'bold';
-    span.textContent = `${num1} + ${num2} = ${sum}`;
+    span.textContent = sum;
     
     result.appendChild(span);
     content.appendChild(result);
